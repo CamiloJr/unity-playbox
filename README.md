@@ -101,12 +101,14 @@ Tip: prototype everything on a breadboard before soldering it into the final enc
 The circuit diagram is available at:
 
 ```text
-./src/circuit-diagram/circuit_diagram.jpg
+src/circuit-diagram/circuit_diagram.png
 ```
 
 You can view it directly on GitHub, or embed it in the README:
 
-![Circuit Diagram](./src/circuit-diagram/circuit_diagram.jpg)
+![Circuit Diagram](src/circuit-diagram/circuit_diagram.png)
+
+[Download circuit_diagram.jpg](src/circuit-diagram/circuit_diagram.png)
 
 **Suggested pin mapping (adjust to match your firmware):**
 
