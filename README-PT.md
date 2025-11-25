@@ -106,7 +106,9 @@ src/circuit-diagram/circuit_diagram.png
 
 Você pode visualizar diretamente no GitHub ou incluir a imagem no README:
 
-![Diagrama do Circuito](src/circuit-diagram/circuit_diagram.png)
+<p align="center">
+  <img src="src/circuit-diagram/circuit_diagram.png" alt="Circuit Diagram" width="400" />
+</p>
 
 [Download circuit_diagram.jpg](src/circuit-diagram/circuit_diagram.png)
 
