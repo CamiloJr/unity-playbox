@@ -1,6 +1,6 @@
 # PlayBox for Unity
 
-Physical control system for the Unity Editor, designed for Virtual Reality development and testing.
+Physical control system for the Unity Editor, designed for eXtended Reality development and testing.
 
 ---
 
@@ -24,7 +24,7 @@ Physical control system for the Unity Editor, designed for Virtual Reality devel
 
 ## Introduction
 
-**PlayBox** is a **hardware + software** system created to streamline the testing cycle in **Virtual Reality** projects developed with **Unity**.
+**PlayBox** is a **hardware + software** system created to streamline the testing cycle in **eXtended Reality** projects developed with **Unity**.
 
 Instead of taking off the headset (HMD) every time you need to hit **Play**, **Pause**, or **Restart** in the Editor, PlayBox lets you trigger these actions through a small physical box with buttons, based on an **Arduino Pro Micro** and **Bluetooth (HC-05 / HC-06)**.
 
@@ -98,19 +98,13 @@ Tip: prototype everything on a breadboard before soldering it into the final enc
 
 #### 1.2. Circuit Diagram
 
-The circuit diagram is available at:
-
-```text
-src/circuit-diagram/circuit_diagram.png
-```
-
-You can view it directly on GitHub, or embed it in the README:
+The circuit diagram is available at: [here](src/circuit-diagram/circuit_diagram.png).
 
 <p align="center">
   <img src="src/circuit-diagram/circuit_diagram.png" alt="Circuit Diagram" width="400" />
 </p>
 
-[Download circuit_diagram.jpg](src/circuit-diagram/circuit_diagram.png)
+
 
 **Suggested pin mapping (adjust to match your firmware):**
 
@@ -138,11 +132,12 @@ You can view it directly on GitHub, or embed it in the README:
 
 ### 2. Unity
 
+
 #### 2.1. Release
 
 1. Go to the **Releases** page of this repository on GitHub.
 2. Download the package you want, for example:
-   - `PlayBoxUnity-x.y.z.unitypackage`  
+   - `PlayBoxUnity-1.0.1.unitypackage`  ->   [Go to Releases](releases).
    or  
    - a `.zip` containing the `Assets/...` folder.
 3. In Unity:
@@ -167,6 +162,10 @@ You should now have access to:
 - Any required prefabs or supporting assets.
 
 > Adjust the names above to match your actual project structure.
+
+
+> **⚠️ Important:** For PlayBox to work correctly in Unity, you must change the **API Compatibility Level** of your project:
+> `Edit > Project Settings > Player > Other Settings > Api Compatibility Level` → select **.NET Framework** instead of **.NET Standard 2.1**.
 
 ---
 
@@ -225,5 +224,3 @@ This COM port will be used inside Unity to connect to the PlayBox.
    - When you are ready, press the **Play** button on the box;
    - Use **Restart** to repeat the test without removing the headset;
    - Use **Pause** if you need to freeze the simulation at a specific moment.
-
----

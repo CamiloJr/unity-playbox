@@ -225,5 +225,3 @@ Essa porta será utilizada dentro da Unity para conectar ao PlayBox.
    - Quando estiver posicionado, pressione o botão **Play** na caixa;
    - Use o botão **Restart** para repetir o teste sem tirar o headset;
    - Use **Pause** se precisar congelar a execução em um momento específico.
-
----
