@@ -2,7 +2,7 @@
 
 Physical control system for the Unity Editor, designed for eXtended Reality development and testing.
 
-[Portuguese Version](README-PT.md)
+ -> [Portuguese Version](README-PT.md)
 ---
 
 ## Table of Contents
