@@ -1,13 +1,13 @@
-# PlayBox for Unity
+# PlayBox para Unity
 
-Sistema de controle físico para o Editor da Unity, pensado para desenvolvimento e testes em Realidade Virtual.
+Sistema de controle físico para o Editor da Unity, projetado para desenvolvimento e testes em Realidade Estendida (XR).
 
 ---
 
 ## Índice
 
 - [Introdução](#introdução)
-- [Funções do sistema](#funções-do-sistema)
+- [Funcionalidades do sistema](#funcionalidades-do-sistema)
 - [Versões da Unity suportadas](#versões-da-unity-suportadas)
 - [Como criar / instalar](#como-criar--instalar)
   - [1. Montagem do hardware com Arduino Pro Micro](#1-montagem-do-hardware-com-arduino-pro-micro)
@@ -24,21 +24,21 @@ Sistema de controle físico para o Editor da Unity, pensado para desenvolvimento
 
 ## Introdução
 
-O **PlayBox** é um sistema de **hardware + software** criado para facilitar o ciclo de testes em projetos de **Realidade Virtual** desenvolvidos na **Unity**.
+O **PlayBox** é um sistema de **hardware + software** criado para agilizar o ciclo de testes em projetos de **Realidade Estendida (XR)** desenvolvidos com a **Unity**.
 
-Em vez de tirar o headset (HMD) toda vez que você precisa clicar em **Play**, **Pause** ou **Restart** no Editor, o PlayBox permite controlar essas ações por meio de uma pequena caixa física com botões, baseada em **Arduino Pro Micro** e **Bluetooth (HC-05/HC-06)**.
+Em vez de tirar o headset (HMD) toda vez que você precisa clicar em **Play**, **Pause** ou **Restart** no Editor, o PlayBox permite acionar essas funções por meio de uma pequena caixa física com botões, baseada em um **Arduino Pro Micro** e **Bluetooth (HC-05 / HC-06)**.
 
 Este repositório contém:
 
 - Firmware para o **Arduino Pro Micro**;
 - **Scripts C# para Unity** (Editor/runtime);
-- Orientações de montagem do hardware e integração com o projeto Unity.
+- Instruções para montagem do hardware e integração com a Unity.
 
 ---
 
-## Funções do sistema
+## Funcionalidades do sistema
 
-O PlayBox foi pensado para reduzir o atrito no desenvolvimento e teste de cenas VR. Entre suas principais funções:
+O PlayBox foi pensado para reduzir o atrito ao iterar e testar cenas em XR/VR. As principais funcionalidades são:
 
 - **Controle do Editor da Unity via botões físicos**
   - Botão **Play/Stop** → entra e sai do *Play Mode*;
@@ -46,32 +46,32 @@ O PlayBox foi pensado para reduzir o atrito no desenvolvimento e teste de cenas 
   - Botão **Pause** → pausa / retoma a execução do jogo.
 
 - **Conexão sem fio via Bluetooth (HC-05 ou HC-06)**
-  - Comunicação serial com o PC por porta COM virtual;
-  - Serviço em C# na Unity que interpreta os comandos recebidos.
+  - Comunicação serial com o PC por meio de uma porta COM virtual;
+  - Um serviço em C# na Unity que recebe e interpreta os comandos.
 
-- **Janela de controle na Unity**
-  - Seleção de porta serial e baud rate;
-  - Botões para **Conectar / Desconectar / Reconnect**;
+- **Janela personalizada no Editor**
+  - Seleção da porta serial e baud rate;
+  - Botões para **Connect / Disconnect / Reconnect**;
   - Exibição de status (desabilitado, conectando, conectado etc.).
 
 - **Feedback visual no hardware**
-  - LED ligado quando o sistema está ativo;
-  - Pisca ao receber comandos dos botões.
+  - LED aceso quando o sistema está ativo;
+  - LED pisca quando um comando de botão é enviado.
 
-O objetivo é permitir que você **controle o ciclo de execução** (Play / Restart / Pause) sem precisar interagir diretamente com o Editor da Unity, mantendo o foco dentro da experiência VR.
+O objetivo é permitir que você **controle o ciclo de execução** (Play / Restart / Pause) sem precisar interagir diretamente com a interface do Editor da Unity, mantendo o foco dentro da experiência XR/VR.
 
 ---
 
 ## Versões da Unity suportadas
 
-O PlayBox foi desenvolvido e testado principalmente em:
+O PlayBox foi desenvolvido e testado principalmente com:
 
 - **Unity 2022.3 LTS**
-- **Unity 6 / 6000.x** (testes pontuais)
+- **Unity 6 / 6000.x** (testes limitados)
 
-Em princípio, qualquer versão **Unity 2021.3+** com suporte a .NET Standard 2.x e Editor para Windows tende a funcionar, mas ainda não foi exaustivamente testada.
+Em princípio, qualquer versão **Unity 2021.3+** com suporte a .NET Standard 2.x e Editor para Windows deve funcionar, mas nem todas as combinações foram exaustivamente testadas.
 
-> **Recomendação:** utilizar **Unity 2022.3 LTS ou superior**.
+> **Recomendação:** use **Unity 2022.3 LTS** ou superior.
 
 ---
 
@@ -84,44 +84,36 @@ Em princípio, qualquer versão **Unity 2021.3+** com suporte a .NET Standard 2.
 Lista básica de componentes:
 
 - **1x Arduino Pro Micro** (5V)
-- **1x Módulo Bluetooth HC-05** (ou **HC-06**)
+- **1x módulo Bluetooth HC-05** (ou **HC-06**)
 - **1x bateria 5V** (ou alimentação USB equivalente)
 - **1x LED verde**
-- **1x switch** (liga/desliga geral)
-- **3x push buttons** do tipo botoeira
-- **3x resistores 10kΩ** (para pull-down dos botões)
-- **1x resistor 330Ω** (para o LED)
-- **1x caixa de plástico** para acomodar tudo
+- **1x chave liga/desliga** (power switch)
+- **3x botões do tipo push button** (botoeira)
+- **3x resistores de 10kΩ** (para pull-down dos botões)
+- **1x resistor de 330Ω** (para o LED)
+- **1x caixa plástica** (case)
 - **Fios** (jumpers ou fios rígidos/flexíveis)
 
-Sugestão: prototipe em uma protoboard antes de montar na caixa definitiva.
+Dica: prototipe tudo em uma protoboard antes de soldar na caixa definitiva.
 
 #### 1.2. Diagrama do circuito
 
-O diagrama elétrico do sistema está disponível em:
-
-```text
-src/circuit-diagram/circuit_diagram.png
-```
-
-Você pode visualizar diretamente no GitHub ou incluir a imagem no README:
+O diagrama elétrico do sistema está disponível em: [aqui](src/circuit-diagram/circuit_diagram.png).
 
 <p align="center">
-  <img src="src/circuit-diagram/circuit_diagram.png" alt="Circuit Diagram" width="400" />
+  <img src="src/circuit-diagram/circuit_diagram.png" alt="Diagrama do Circuito" width="400" />
 </p>
 
-[Download circuit_diagram.jpg](src/circuit-diagram/circuit_diagram.png)
-
-**Mapeamento de pinos sugerido (ajuste conforme o firmware):**
+**Mapeamento de pinos sugerido (ajuste de acordo com o firmware):**
 
 - **Botões:**
-  - `PIN 2` → Botão **Play/Stop**
-  - `PIN 3` → Botão **Restart**
-  - `PIN 15` → Botão **Pause**
+  - `PIN 2` → botão **Play/Stop**
+  - `PIN 3` → botão **Restart**
+  - `PIN 15` → botão **Pause**
 
 - **LED:**
   - `PIN 14` → LED do sistema  
-    - LED em série com **resistor de 330Ω** para o GND.
+    - LED em série com um **resistor de 330Ω** para GND.
 
 - **Módulo Bluetooth (HC-05 / HC-06):**
   - `TX (Arduino Pro Micro)` → `RX (HC-05)`
@@ -130,43 +122,46 @@ Você pode visualizar diretamente no GitHub ou incluir a imagem no README:
   - `GND (HC-05)` → GND
 
 - **Botões (exemplo de ligação):**
-  - Um lado do botão → 5V  
-  - Outro lado do botão → pino digital (2, 3 ou 15) **+ resistor 10kΩ para GND**  
-  - O resistor de 10kΩ funciona como **pull-down**, mantendo o pino em nível baixo quando o botão não está pressionado.
+  - Um lado de cada botão → 5V  
+  - Outro lado → pino digital (2, 3 ou 15) **e** resistor de 10kΩ para GND  
+  - O resistor de 10kΩ atua como **pull-down**, mantendo o pino em nível LOW quando o botão não está pressionado.
 
 ---
 
 ### 2. Unity
 
+> **⚠️ Importante:** para o PlayBox funcionar corretamente na Unity, é necessário alterar o **API Compatibility Level** do projeto:  
+> Em `Edit > Project Settings > Player > Other Settings > Api Compatibility Level`, selecione **.NET Framework** em vez de **.NET Standard 2.1**.
+
 #### 2.1. Release
 
-1. Acesse a aba **Releases** deste repositório no GitHub.
-2. Baixe o pacote na versão desejada, por exemplo:
-   - `PlayBoxUnity-x.y.z.unitypackage`  
+1. Acesse a página de **Releases** deste repositório no GitHub.
+2. Baixe o pacote desejado, por exemplo:
+   - `PlayBoxUnity-1.0.1.unitypackage`  →  [Ir para Releases](https://github.com/CamiloJr/unity-playbox/releases).  
    ou  
-   - um `.zip` contendo a pasta `Assets/...`.
-3. No Unity:
-   - Vá em **Assets > Import Package > Custom Package...**
+   - Um `.zip` contendo a pasta `Assets/...`.
+3. Na Unity:
+   - Abra **Assets > Import Package > Custom Package...**
    - Selecione o `.unitypackage` baixado;
    - Importe todos os arquivos necessários.
 
 #### 2.2. Scripts C#
 
-Se preferir clonar o repositório ou usar o `.zip`:
+Se preferir clonar ou baixar o repositório diretamente:
 
-1. Faça o **clone** ou **download** do repositório.
-2. Localize a pasta com os scripts do PlayBox (por exemplo:  
-   `Assets/PiXR/PlayBox/` ou estrutura equivalente).
+1. Faça o **clone** ou **download** deste repositório.
+2. Localize a pasta que contém os scripts do PlayBox (por exemplo:  
+   `Assets/PiXR/PlayBox/` ou estrutura semelhante).
 3. Copie essa pasta para dentro da pasta `Assets` do seu projeto Unity.
-4. Aguarde o Unity recompilar os scripts.
+4. Aguarde a Unity recompilar os scripts.
 
-Após isso, você deverá ter acesso:
+Depois disso, você deverá ter acesso a:
 
-- Ao serviço principal (por exemplo, `PlayBoxService.cs`);
-- À janela de Editor (por exemplo, `PlayBoxWindow.cs`);
-- A eventuais prefabs ou assets auxiliares necessários.
+- Script de serviço principal (por exemplo, `PlayBoxService.cs`);
+- Janela personalizada de Editor (por exemplo, `PlayBoxWindow.cs`);
+- Quaisquer prefabs ou assets auxiliares necessários.
 
-> Ajuste os nomes acima conforme a estrutura real do seu projeto.
+> Ajuste os nomes acima de acordo com a estrutura real do seu projeto.
 
 ---
 
@@ -175,17 +170,17 @@ Após isso, você deverá ter acesso:
 ### 1. Parear dispositivos Bluetooth no Windows
 
 1. Ligue o PlayBox (bateria ou USB) com o módulo HC-05/HC-06 conectado.
-2. Coloque o módulo em modo de pareamento, se necessário (depende da configuração padrão).
+2. Coloque o módulo em modo de pareamento, se necessário (depende da configuração atual).
 3. No **Windows**:
    - Abra **Configurações > Dispositivos > Bluetooth e dispositivos**;
    - Ative o Bluetooth;
-   - Procure pelo dispositivo (ex.: `HC-05`) e clique em **Emparelhar**.
-4. Descubra a **porta COM** associada:
+   - Procure pelo dispositivo (por exemplo, `HC-05`) e clique em **Emparelhar**.
+4. Descubra qual **porta COM** foi atribuída:
    - Abra o **Gerenciador de Dispositivos**;
    - Vá em **Portas (COM & LPT)**;
-   - Anote a porta (ex.: `COM4`, `COM9`, etc.).
+   - Anote a porta COM (por exemplo, `COM4`, `COM9` etc.).
 
-Essa porta será utilizada dentro da Unity para conectar ao PlayBox.
+Essa porta será usada dentro da Unity para conectar ao PlayBox.
 
 ---
 
@@ -193,21 +188,24 @@ Essa porta será utilizada dentro da Unity para conectar ao PlayBox.
 
 1. Abra o projeto Unity que já contém os scripts do PlayBox.
 2. Certifique-se de que:
-   - O PlayBox está ligado;
+   - O hardware do PlayBox está ligado;
    - O módulo Bluetooth está emparelhado com o Windows;
-   - Você sabe qual é a porta COM associada.
+   - Você sabe qual é a porta COM correspondente.
 
-3. No Unity, abra a janela do PlayBox (exemplo):
+3. Na Unity, abra a janela do PlayBox (exemplo):
    - **Window > PiXR > PlayBox**  
-     > Ajuste de acordo com o menu/nome da janela do seu projeto.
+     > Ajuste de acordo com o caminho real do menu no seu projeto.
+     <p align="center">
+        <img src="src/imgs/playbox-menu.png" alt="Menu do PlayBox" width="250" />
+      </p>
 
 4. Na janela do PlayBox:
-   - Habilite o sistema (ex.: marque **Enabled** ou similar);
-   - Selecione a **porta COM** correspondente (ex.: `COM9`);
-   - Ajuste o **baud rate** (por exemplo, `115200`);
+   - Habilite o sistema (por exemplo, marcando **Enabled** ou similar);
+   - Selecione a **porta COM** correta (por exemplo, `COM9`);
+   - Defina o **baud rate** (por exemplo, `9600`);
    - Clique em **Connect**.
 
-5. Com o status em **Connected**, teste:
+5. Quando o status indicar **Connected**, teste os botões:
 
    - **Botão Play/Stop**  
      - Entra e sai do *Play Mode* no Editor.
@@ -218,10 +216,12 @@ Essa porta será utilizada dentro da Unity para conectar ao PlayBox.
    - **Botão Pause**  
      - Pausa / retoma a execução do jogo.
 
-6. Fluxo típico em VR:
+6. Fluxo típico em XR/VR:
 
-   - Deixe a cena pronta e o PlayBox conectado;
-   - Coloque o HMD;
-   - Quando estiver posicionado, pressione o botão **Play** na caixa;
-   - Use o botão **Restart** para repetir o teste sem tirar o headset;
-   - Use **Pause** se precisar congelar a execução em um momento específico.
+   - Prepare a cena e conecte o PlayBox;
+   - Coloque o headset;
+   - Quando estiver pronto, pressione o botão **Play** na caixa;
+   - Use **Restart** para repetir o teste sem tirar o headset;
+   - Use **Pause** se precisar congelar a simulação em um momento específico.
+
+

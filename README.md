@@ -132,12 +132,14 @@ The circuit diagram is available at: [here](src/circuit-diagram/circuit_diagram.
 
 ### 2. Unity
 
+> **⚠️ Important:** For PlayBox to work correctly in Unity, you must change the **API Compatibility Level** of your project:
+> `Edit > Project Settings > Player > Other Settings > Api Compatibility Level` → select **.NET Framework** instead of **.NET Standard 2.1**.
 
 #### 2.1. Release
 
 1. Go to the **Releases** page of this repository on GitHub.
 2. Download the package you want, for example:
-   - `PlayBoxUnity-1.0.1.unitypackage`  ->   [Go to Releases](releases).
+   - `PlayBoxUnity-1.0.1.unitypackage`  ->   [Go to Releases](https://github.com/CamiloJr/unity-playbox/releases).
    or  
    - a `.zip` containing the `Assets/...` folder.
 3. In Unity:
@@ -162,10 +164,6 @@ You should now have access to:
 - Any required prefabs or supporting assets.
 
 > Adjust the names above to match your actual project structure.
-
-
-> **⚠️ Important:** For PlayBox to work correctly in Unity, you must change the **API Compatibility Level** of your project:
-> `Edit > Project Settings > Player > Other Settings > Api Compatibility Level` → select **.NET Framework** instead of **.NET Standard 2.1**.
 
 ---
 
@@ -199,11 +197,14 @@ This COM port will be used inside Unity to connect to the PlayBox.
 3. In Unity, open the PlayBox window (example):
    - **Window > PiXR > PlayBox**  
      > Adjust according to the actual menu path in your project.
+     <p align="center">
+        <img src="src/imgs/playbox-menu.png" alt="PlayBox Menu" width="250" />
+      </p>
 
 4. In the PlayBox window:
    - Enable the system (e.g., check **Enabled** or a similar toggle);
    - Select the correct **COM port** (e.g., `COM9`);
-   - Set the **baud rate** (for example, `115200`);
+   - Set the **baud rate** (for example, `9600`);
    - Click **Connect**.
 
 5. Once the status shows **Connected**, test the buttons:
