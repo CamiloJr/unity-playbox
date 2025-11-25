@@ -223,5 +223,3 @@ Essa porta será utilizada dentro da Unity para conectar ao PlayBox.
    - Use **Pause** se precisar congelar a execução em um momento específico.
 
 ---
-
-Se você fizer ajustes na estrutura de pastas, nomes dos scripts ou menus, lembre-se de atualizar este README para manter a documentação alinhada com a implementação atual.

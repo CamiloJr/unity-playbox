@@ -223,5 +223,3 @@ This COM port will be used inside Unity to connect to the PlayBox.
    - Use **Pause** if you need to freeze the simulation at a specific moment.
 
 ---
-
-If you change folder structure, script names or menu paths, remember to update this README so it stays consistent with the implementation.
