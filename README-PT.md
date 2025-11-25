@@ -101,12 +101,12 @@ Sugestão: prototipe em uma protoboard antes de montar na caixa definitiva.
 O diagrama elétrico do sistema está disponível em:
 
 ```text
-./src/circuit-diagram/circuit_diagram.png
+./src/circuit-diagram/circuit_diagram.jpg
 ```
 
 Você pode visualizar diretamente no GitHub ou incluir a imagem no README:
 
-![Diagrama do Circuito](./src/circuit-diagram/circuit_diagram.png)
+![Diagrama do Circuito](./src/circuit-diagram/circuit_diagram.jpg)
 
 **Mapeamento de pinos sugerido (ajuste conforme o firmware):**
 
