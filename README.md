@@ -200,7 +200,7 @@ This COM port will be used inside Unity to connect to the PlayBox.
    - **Window > PiXR > PlayBox**  
      > Adjust according to the actual menu path in your project.
      <p align="center">
-        <img src="src/imgs/playbox-menu.png" alt="PlayBox Menu" width="450" />
+        <img src="src/imgs/playbox-menu.png" alt="PlayBox Menu" width="380" />
       </p>
 
 4. In the PlayBox window:
