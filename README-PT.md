@@ -196,7 +196,7 @@ Essa porta será usada dentro da Unity para conectar ao PlayBox.
    - **Window > PiXR > PlayBox**  
      > Ajuste de acordo com o caminho real do menu no seu projeto.
      <p align="center">
-        <img src="src/imgs/playbox-menu.png" alt="Menu do PlayBox" width="250" />
+        <img src="src/imgs/playbox-menu.png" alt="Menu do PlayBox" width="380" />
       </p>
 
 4. Na janela do PlayBox:
